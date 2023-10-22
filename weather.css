@@ -1,0 +1,1122 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik:wght@300&display=swap');
+
+  * {
+    --Bg1: #171717;
+    --Bg2: #1C1C1C;
+    --Pb: #242424;
+    --spot: #1E1E1E;
+    --click: rgba(1,1,1,0.2);
+    color: #fff;
+    outline: 0;
+    resize: none;
+    user-select: none;
+  
+  }
+  * button, * img {
+    border-style: hidden;
+  }
+  a, * a {
+    width: auto;
+    margin-left:;
+    text-decoration: none;
+  }
+  a:is(:link,:hover,:active,:focus) {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  body {
+    overflow: hidden;
+  }
+  .icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align:;
+    margin-right: 3%;
+  }
+  .header {
+    width: 96%;
+    padding: 2%;
+    margin: -0.5% 0 0 auto;
+    background-color: var(--Bg1);
+    display: flex;
+  }
+  .subpage {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(1,1,0,0.5);
+    display: none;
+    z-index: 10;
+  }
+  .hidden_bg {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    display:;
+    z-index: 0;
+  }
+  label {
+    font: 125% 'Poppins';
+    font-weight: bold;
+  }
+  #container {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: var(--Bg1);
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  #container .page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    inset: 0%;
+    background-color: var(--Bg1);
+    flex-shrink: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-align: center;
+  }
+  .Home_header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .Home_header .nm {
+    width: 65%;
+    margin: auto 2% auto 1%;
+  }
+  .Home_header .nm #curr_city {
+    width: 100%;
+    font: 125% 'Poppins';
+    font-weight: bold;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+  }
+  .Home_header .nm small {
+    font: 75% 'Poppins';
+    color: #636363;
+  }
+  .Home_header .icon-holder {
+    width: 25%;
+    padding: 1% 0;
+    margin: auto 1%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .Home_header .icon-holder button {
+    width: 40px;
+    height: 40px;
+    padding:;
+    margin: 1%;
+    border-radius: 50%;
+    border-style: hidden;
+    background-color: transparent;
+    font-size: 105%;
+    transform: rotate(-90deg);
+    transition: background-color .5s ease-in-out;
+  }
+  .Home_header .icon-holder button:is(:active) {
+    background-color: var(--click);
+  
+  }
+  
+  #Effect {
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #Effect .outer {
+    width: 185px;
+    height: 185px;
+    padding:;
+    border-radius: 50%;
+    background-color: var(--Bg2);
+    background-size: cover;
+    text-align: center;
+  }
+  #Effect .outer .inner {
+    width: 180px;
+    height: 180px;
+    margin: 1.5% auto;
+    border-radius: 50%;
+    border-style: hidden;
+    background-color: var(--Bg1);
+    object-fit: cover;
+    background-size: cover;
+  }
+  #Effect .outer .inner .spot {
+    width: 160px;
+    height: 160px;
+    margin: 3% auto;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--spot);
+  }
+  .spot #cloud {
+    width: 100%;
+    margin-top: -2%;
+    text-align: center;
+    background-size: cover;
+  }
+  .spot #cloud img {
+    width: 50px;
+    object-fit: cover;
+    border-style: hidden;
+  }
+  .spot #desc {
+    margin-top: 3%;
+    font: 80% 'Roboto';
+  }
+  .spot #temp {
+    font: 220% 'Poppins';
+    font-weight: 350;
+  }
+  .spot #city_name {
+    font: 90% 'Rubik';
+    letter-spacing: 1;
+  }
+  
+  .Details {
+    width: 96%;
+    margin: 5% 0;
+    padding: 2%;
+    text-align: justify;
+  }
+  .Details main {
+    width: 103%;
+    padding: 3% 1%;
+    margin: 0 0 0 -3%;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  .Details main div {
+    width: 30%;
+    padding: 4% 2%;
+    margin: 0 2% 0 3%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: justify;
+    background-color: var(--Pb);
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+  .Details main div span {
+    font: 80% 'Rubik';
+    color: grey;
+  }
+  .Details main div button {
+    width: 100%;
+    border-style: hidden;
+    display: flex;
+    background-color: transparent;
+    font: 95% 'Poppins';
+  }
+  .Details main div button .icon {
+    margin-right: 3%;
+    font-size: 80%;
+  }
+  .Details main div button span {
+    font: 110% 'Rubik';
+    color: #fff;
+    margin-top: 1%;
+  }
+  
+  .forcasts_details {
+    width: 100%;
+    padding: 0% 0.5%;
+    margin-left: 0%;
+    display: flex;
+    flex-direction: column;
+  }
+  .forcasts_details main {
+    width: 100%;
+    padding: 3% 2%;
+    margin-left: -1%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  .forcasts_details main .forcast_blocks {
+    width: 28%;
+    min-height: 20vh;
+    max-height: 35vh;
+    padding: 2% 0% 0% 0%;
+    margin: 0.5% 2%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    background-color: #F7F7F7;
+  }
+  .forcasts_details main .forcast_blocks .forcastDay {
+    width: 100%;
+    padding: 5% auto;
+    background-color: transparent;
+    color: #212121;
+    font: 100% 'Rubik';
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: center;
+  }
+  .forcasts_details main .forcast_blocks .mainItm {
+    width: 100%;
+    height: 80%;
+    padding: 2% auto;
+    margin: 2% 0% -2%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #DEDEDE;
+  }
+  .forcasts_details main .forcast_blocks .mainItm .fig {
+    width: 60%;
+    margin: 3% 20% 10%;
+    background-size: cover;
+  }
+  .forcasts_details main .forcast_blocks .mainItm .fig img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .forcasts_details main .forcast_blocks .mainItm .Ftemp {
+    margin-top: 8%;
+    color: #000;
+    letter-spacing: 0.4;
+    font: 130% 'Poppins';
+    font-weight: 401;
+  }
+  
+  .Forcasts-page .mainItm {
+    width: 98%;
+    height: 90vh;
+    padding: 2% 1%;
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    inset: auto 0% 0%;
+    background-color: var(--Bg2);
+    overflow-y: auto ;
+    overflow-x: hidden ;
+  }
+  .Forcasts-page .mainItm .header {
+    width: 100%;
+    padding: 3% 0%;
+    margin: 0% 0%;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    position: absolute;
+    background-color: var(--Bg2);
+    z-index: 10;
+  }
+  .Forcasts-page .mainItm .header .icon-holder {
+    width: 40px;
+    height: 40px;
+    margin: 0% 1%;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 95%;
+    transition: background-color .5s ease-in-out;
+  }
+  .Forcasts-page .mainItm .header .icon-holder:is(:active) {
+    background-color: var(--click);
+  }
+  .Forcasts-page .mainItm .header .span {
+    width: auto;
+    padding: 0% 2%;
+    margin: 1% 2% 1% 1%;
+    background-color: transparent;
+    font: 100% 'Poppins';
+    font-weight: 405;
+  }
+  .Forcasts-page .mainItm .subheader {
+    width: 100%;
+    padding: 2% 0%;
+    position: relative;
+    left: 0%;
+    right: 0%;
+    margin-top:;
+    display: flex ;
+    justify-content: left ;
+    background-color: transparent;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+  .Forcasts-page .mainItm .subheader button {
+    width: 15%;
+    margin: 1% 2%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(1,1,1,0.3);
+    flex-shrink: 0;
+  }
+  .Forcasts-page .mainItm .subheader button .time, .Forcasts-page .mainItm .subheader button .imgTemp figcaption {
+    width: auto;
+    font: 100% 'Rubik';
+    font-weight: 401;
+  }
+  .Forcasts-page .mainItm .subheader button .imgTemp {
+    width: auto;
+    margin-top: 25%;
+  }
+  .Forcasts-page .mainItm .subheader button .imgTemp div {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-color: transparent;
+  }
+  .Forcasts-page .mainItm .subheader button .imgTemp div img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .Forcasts-page .mainItm .mainBlock{
+    width: 50%;
+    padding: 3% 0%;
+    margin: 18% 0% 3%;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    position: relative ;
+    inset: auto 25%;
+    background-color: transparent;
+  }
+  .Forcasts-page .mainItm .mainBlock .fig{
+    width: 60%;
+    height: auto ;
+    margin: auto 20%;
+    background-size: cover;
+    background-color: transparent;
+  }
+  .Forcasts-page .mainItm .mainBlock .fig img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .Forcasts-page .mainItm .mainBlock .span{
+    width: 60%;
+    margin: auto 20%;
+    background-color: transparent;
+    font: 250% 'Poppins';
+    font-weight: 200;
+    text-align: center ;
+  }
+  .Forcasts-page .mainItm .details{
+    width: 100%;
+    height: auto ;
+    margin-top: 10%;
+    display: flex ;
+    flex-direction: column ;
+  }
+  .Forcasts-page .mainItm .details .Itms{
+    width: 98%;
+    padding: 3% 1%;
+    margin: 2% 0% 0%;
+    border-bottom: 1px solid #666;
+    display: flex ;
+    justify-content: space-between ;
+  }
+  .Forcasts-page .mainItm .details .Itms .span,   .Forcasts-page .mainItm .details .Itms .main-span {
+    width: auto ;
+    margin-right: 1%;
+    background-color: transparent;
+    font: 100% 'Rubik';
+    font-weight: 400;
+    letter-spacing: 0.4;
+  }
+  
+  .BookMark {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 80%;
+    height: 60vh;
+    padding: 2% auto 3%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Bg2);
+    z-index: 10;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .BookMark .BookMark-header {
+    padding: 4% 2%;
+    border-radius: 15px 15px 0 0;
+    justify-content: space-between;
+    background-color: transparent;
+  }
+  .BookMark .BookMark-header span {
+    margin-left: 2%;
+    font: 120% 'Rubik';
+    font-weight: bold;
+  }
+  .BookMark .BookMark-header small {
+    border-radius: 40px;
+    background-color: transparent;
+    color: #008AFF;
+    font: 90% 'Poppins';
+    transition: background-color .5s ease-in-out;
+  }
+  .BookMark .BookMark-header button:is(:active) {
+    background-color: var(--click);
+  }
+  .BookMark main {
+    width: 96%;
+    padding: 2%;
+    margin: 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .recents_itms, .recents_itms block {
+    width: 98%;
+    padding: 2% 1%;
+    margin: 1% 0%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .recents_itms block {
+    width: 80%;
+    padding: 0% 1%;
+  }
+  .recents_itms block .icon-holder,.recents_itms .icon-holder {
+    width: 40px;
+    height: 40px;
+    margin-right: 1%;
+    margin-top: -0.5%;
+    border-radius: 50%;
+    font-size: 90%;
+    background-color: transparent;
+  }
+  .recents_itms block .span {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+  }
+  .recents_itms block .span .rec_country, .recents_itms block .span .rec_state {
+    font: 95% 'Poppins';
+    font-weight: 405;
+    letter-spacing: 0.4;
+    text-transform: capitalize;
+  }
+  .recents_itms block .span .rec_state {
+    color: #666;
+  }
+  
+  
+  .Nothing {
+    width: 100%;
+    height: 60%;
+    background-color: transparent;
+  }
+  
+  .Menu {
+    width: 100%;
+    height: 0vh;
+    position: absolute;
+    inset: auto 0 0 0;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--Bg2);
+    overflow: auto;
+  }
+  .Menu .Menu-header {
+    width: 100%;
+    padding: 2% 0;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--Bg2);
+  }
+  .Menu-header span {
+    margin-left: 2%;
+    margin-top: 2%;
+    font: 120% 'Rubik';
+    font-weight: bold;
+  }
+  .Menu-header button {
+    width: 40px;
+    height: 40px;
+    margin-right: 2%;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 105%;
+    transition: background-color .5s ease-in-out;
+  }
+  .Menu-header button:is(:active) {
+    background-color: var(--click);
+  }
+  .Menu main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .Menu main div {
+    width: 96%;
+    padding: 2%;
+    margin: 0;
+    display: flex;
+    justify-content: left;
+    transition: background-color .5s ease-in-out;
+  }
+  .Menu main div:is(:active) {
+    background-color: #212121;
+  }
+  .Menu main div .span {
+    width: 50%;
+    background-color: transparent;
+    font: 100% 'Rubik';
+    text-align: left;
+  }
+  .Menu main div .icon-btn {
+    width: 45px;
+    height: 45px;
+    margin-right: 2%;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #eee;
+    font-size: 110%;
+    text-align: center;
+  }
+  .search {
+    position: absolute;
+    inset: 0%;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--Bg2);
+    overflow: auto;
+  }
+  .search .search-header {
+    width: 96%;
+    padding: 2%;
+    margin: 0%;
+    background-color: #2F2F2F;
+    justify-content: space-between;
+  }
+  .search .search-header block {
+    width: 80%;
+    display: flex;
+  }
+  .search .search-header block button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color .5s ease-in-out;
+  }
+  .search .search-header block button:is(:active) {
+    background-color: var(--click);
+  }
+  .search .search-header block input[type='text'] {
+    width: 80%;
+    padding: 4% 0%;
+    margin-top: -0.5%;
+    border-style: hidden;
+    background-color: transparent;
+    font: 105% 'Roboto';
+    text-transform: capitalize;
+  }
+  .search .search-header div {
+    width: 20%;
+    padding: 3% 1%;
+    margin-top: 1%;
+    margin-right: -2%;
+    border-radius: 15px 0 0 15px;
+    background-color: transparent;
+    color: #0051FF;
+    font: 100% 'Poppins';
+    font-weight: bold;
+    letter-spacing: 0.5;
+    transition: background-color .5s ease-in-out;
+  }
+  .search_results_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .search_results_btn {
+    width: 98%;
+    padding: 2% 1%;
+    margin: 1% 0%;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-shrink: 0;
+  }
+  .search_results_btn .icon-holder {
+    width: 40px;
+    height: 40px;
+    margin: auto 1% 2%;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 90%;
+  }
+  .search_results_btn .span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+  }
+  .search_results_btn .span .search_country {
+    font: 95% 'Poppins';
+    font-weight: 410;
+    letter-spacing: 0.4;
+    text-transform: capitalize;
+  }
+  .search_results_btn .span .state {
+    font: 105% 'Poppins';
+    font-weight: 405;
+    letter-spacing: 0.4;
+    color: #666;
+  }
+  
+  .Favourite_parent, .Location_body {
+    width: 98%;
+    height: 100vh;
+    padding: 0% 1%;
+    position: absolute;
+    inset: 0% 0%;
+    background-color: var(--Bg1);
+    overflow-x: hidden;
+  }
+  .Favourite_parent .Favourite_header, .Location_body .Location_header {
+    position: sticky;
+    top: 0%;
+    width: 100%;
+    padding: 2% 0%;
+    margin-top: -0.5%;
+    justify-content: space-between;
+    background-image: linear-gradient(180deg, rgba(23,23,23,0.5) , transparent);
+  }
+  .TotalFavouriteFound{
+    width: 98%;
+    padding: 1%;
+    display: flex ;
+    justify-content: right ;
+    font: 80% 'Poppins';
+    font-weight: 400;
+  }
+  .Favourite_header .main, .Location_header .main {
+    width: 45%;
+    display: flex;
+    justify-content: left;
+  }
+  .Favourite_header .main a .back , .Location_header .main a .back {
+    width: 40px;
+    height: 40px;
+    margin: auto auto auto 0.5%;
+    border-radius: 50px;
+    background-color: transparent;
+    font-size: 100%;
+    transition: background-color .5s ease-in-out;
+  }
+  .Favourite_header .main a .back:is(:active), .Location_header .main a .back:is(:active) {
+    background-color: var(--click);
+  }
+  .Favourite_header .main .span, .Location_header .main .span {
+    width: 85%;
+    padding: 2% 5%;
+    margin-left: 2%;
+    border-radius: 2px;
+    font: 125% 'Poppins ';
+    font-weight:;
+    background-color: transparent;
+    text-align: left;
+  }
+  .Location_Illustration {
+    position: absolute;
+    inset: 15% 0% 30%;
+    display: flex;
+    flex-direction: column;
+  }
+  .Location_Illustration figure {
+    width: 90%;
+    height: auto;
+    margin: auto 5%;
+    background-size: cover;
+  }
+  .Location_Illustration figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 10;
+  }
+  .Location_Illustration main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.4;
+    font: 90% 'Poppins';
+  }
+  .Location_Illustration main span {
+    font: 110% 'Poppins';
+    font-weight: 450;
+    letter-spacing: 0.4;
+  }
+  .Location_Illustration main small {
+    font: 75% 'Poppins';
+    font-weight: 400;
+    letter-spacing: 0.4;
+  }
+  .Location_body footer {
+    position: absolute;
+    bottom: 5%;
+    left: 0%;
+    width: 100%;
+    padding: 5% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .Location_body footer a {
+    width: auto;
+    height: auto;
+    padding: 3% 2%;
+    margin: auto;
+  }
+  .Location_body footer a button {
+    width: 120%;
+    padding: 7% 2%;
+    margin: auto ;
+    border-radius: 5px;
+    background-color: #00DCC5;
+    color: #000;
+    font: 85% 'Poppins';
+    letter-spacing: 0.4;
+  }.Favourite_Holder {    width: 100%;    padding: 1%;    display: flex;    flex-wrap: wrap;  }  .Favourite_Holder .items {    width: 40%;    padding: 2%;    margin: 0% 3% 3%;    border-radius: 10px;    display: flex;    flex-direction: column;    flex-shrink: 0;    background-color: #202020/*#E2E2E2*/;    overflow: hidden;  }
+  .Favourite_Holder .items .div {
+    width: 100%;
+    margin: 2% 0%;
+    display: flex;
+  }
+  .Favourite_Holder .items .div button {
+    background-color: transparent;
+  }
+  .Favourite_header .items .top {
+    justify-content: left;
+  }
+  .Favourite_Holder .items .top button {
+    font: 110% 'Poppins';
+  }
+  .Favourite_Holder .items .top .span {
+    width: 60%;
+    margin-left: -2%;
+    font-weight: bold;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    overflow: hidden;
+    text-align: left;
+  }
+  .Favourite_Holder .items .mid {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Favourite_Holder .items .mid .FavIcon {
+    width: 70px;
+    height: 70px;
+    margin: 3% auto 2%;
+    border-radius: 50%;
+    background-size: cover;
+  }
+  .Favourite_Holder .items .mid button img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .Favourite_Holder .items .bottom {
+    margin-top: 2%;
+    justify-content: space-between;
+  }
+  .Favourite_Holder .items .bottom .FavTemp {
+    font: 115% 'Rubik';
+    font-weight: bold;
+  }
+  .Favourite_Holder .items .bottom .icon-holder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 110%;
+    transition: background-color .5s ease-in-out;
+  }
+  .Favourite_Holder .items .bottom .icon-holder:is(:active) {
+    background-color: var(--click);
+  }
+  .Fav_dialog {
+    width: 100%;
+    height: 0vh;
+    padding: 2% 0%;
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    background-color: var(--Bg2);
+    z-index: 10;
+  }
+  .Fav_dialog .header {
+    justify-content: right;
+    align-items: right;
+    background-color: transparent;
+  }
+  .Fav_dialog .header .icon-holder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 85%;
+    transition: background-color .5s ease-in-out;
+  }
+  .Fav_dialog .header .icon-holder:is(:active) {
+    background-color: var(--click);
+  }
+  .Fav_dialog .Info {
+    width: 100%;
+    margin: 3% 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Fav_dialog .Info .icon-holder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 130%;
+  }
+  .Fav_dialog .Info .span {
+    background-color: transparent;
+    font: 115% 'Poppins';
+    font-weight: bold;
+    letter-spacing: 0.3;
+  }
+  .Fav_dialog .Opts {
+    width: 100%;
+    padding: 2% 0%;
+    margin: 2% 0%;
+    display: flex;
+    flex-direction: column;
+  }
+  .Fav_dialog .Opts div {
+    width: 98%;
+    padding: 2% 1%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+  }
+  .Fav_dialog .Opts div .icon-holder {
+    width: 40px;
+    height: 40px;
+    margin-right: 3%;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 90%;
+  }
+  .Fav_dialog .Opts div .span {
+    background-color: transparent;
+    font: 100% 'Poppins';
+    font-weight: 400;
+    letter-spacing: 0.3;
+  }
+  
+  .Absence {
+    position: absolute;
+    inset: 25% 0 0 0;
+    width: 100%;
+    min-height: 20vh;
+    max-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Absence button {
+    margin-top: 0.5%;
+    background-color: transparent;
+    font: 90% 'Poppins';
+    letter-spacing: 0.5;
+  }
+  .Absence .svg {
+    font-size: 180%;
+  }
+  
+  .Setting_parent {
+    width: 98%;
+    height: 100vh;
+    padding: 0% 1%;
+    position: absolute;
+    inset: 0% 0%;
+    background-color: var(--Bg1);
+    overflow-x: hidden;
+  }
+  .Setting_parent .Setting_header {
+    position: sticky;
+    top: 0%;
+    width: 100%;
+    padding: 2% 0%;
+    margin-top: -0.5%;
+    justify-content: space-between;
+    background-image: linear-gradient(180deg, rgba(23,23,23,0.8) 50%, transparent);
+  }
+  .Setting_header .main {
+    width: 40%;
+    display: flex;
+    justify-content: left;
+  }
+  .Setting_header .main a .back {
+    width: 40px;
+    height: 40px;
+    margin: auto auto auto 0.5%;
+    border-radius: 50px;
+    background-color: transparent;
+    font-size: 110%;
+    transition: background-color .5s ease-in-out;
+  }
+  .Setting_header .main a .back:is(:active) {
+    background-color: var(--click);
+  }
+  .Setting_header .main .span {
+    width: 85%;
+    padding: 2% 5%;
+    margin-left: 2%;
+    border-radius: 2px;
+    font: 125% 'Poppins ';
+    font-weight:;
+    background-color: transparent;
+    text-align: left;
+    letter-spacing: 0.5;
+  }
+  .Setting_holder, .Setting_holder .items, .Setting_holder .items block {
+    width: 96%;
+    padding: 4% 2%;
+    margin-top:;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .Setting_holder .items, .Setting_holder .items block {
+    width: 100%;
+    padding: 0%;
+  }
+  .Setting_holder .items {
+    margin-top:;
+    background-color:;
+  }
+  .Setting_holder .items block {
+    background-color:;
+  }
+  .Setting_holder .items label {
+    color: grey;
+    font: 85% 'Poppins ';
+  }
+  .Setting_holder .items block div {
+    width: 100%;
+    padding: 2% 0%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .Setting_holder .items block div button {
+    background-color: transparent;
+    font: 105% 'Poppins';
+  }
+  .Setting_holder .items block div .change {
+    width: auto;
+    margin-right: 2%;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    font: 90% 'Rubik',monospace;
+    transition: background-color .5s ease-in-out;
+    transition: border-color .6s ease-in-out;
+  }
+  .Setting_holder .items block div #Theme {
+    font: 115% 'Poppins';
+  }
+  .Setting_holder .items block div #NotifyChange {
+    width: auto;
+    color: grey;
+    font: 85% 'Poppins';
+  }
+  .Setting_holder .items block div #locationChange {
+    width: auto;
+    font: 105% 'Poppins';
+  }
+  
+  .dialog_container {
+    position: fixed;
+    bottom: 3%;
+    width: 100%;
+    padding: 2% 0%;
+    background-color: transparent;
+    text-align: center;
+    z-index: 10;
+    display: none;
+  }
+  .dialog_container .Dialog {
+    width: 90%;
+    padding: 4% 5%;
+    border-radius: 3px;
+    background-color: #ECECEC;
+    color: #000;
+    font: 85% 'Roboto';
+    text-align: left;
+  }
+  
+  .Empty {
+    position: absolute;
+    inset: 20% auto auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .Empty figure {
+    width: 90%;
+    height: auto;
+    margin: auto 5%;
+    background-size: cover;
+  }
+  .Empty figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 10;
+  }
+  .Empty figcaption {
+    width: 100%;
+    margin-top:;
+    text-align: center;
+    letter-spacing: 0.4;
+    font: 90% 'Poppins';
+  }

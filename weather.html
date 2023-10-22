@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="weather.css" />
+        <script src="weather.js"></script>
+    </head>
+    <body>
+    
+      <section id="container">
+        <section id="Home" class="page">
+          <header class="Home_header header">
+            <div class="nm" onclick="fetchRecDB();showBookMark()">
+              <div id="curr_city">
+                GB, London
+              </div>
+              <br />
+            </div>
+            <div class="icon-holder">
+              <button class="heart" style="transform:rotate(0deg);" onclick="FavAddRem(this)"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.9" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg> </button>
+              <button class="chevron" onclick="showMenu(this)"> <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /> </svg>  </button>
+            </div>
+          </header>
+          <br />
+    
+          <article id="Effect">
+            <div class="outer">
+              <button class="inner">
+                <main class="spot">
+                  <div id="cloud">
+                    <img src="#" />
+                  </div>
+                  <small id="desc">scattered clouds</small><br />
+                  <div id="temp">
+                    0°C
+                  </div>
+                  <small id="city_name">London</small>
+                </main>
+              </button>
+            </div>
+          </article>
+          <br />
+          <article class="Details"></article>
+          <article class="forcasts_details"></article>
+    
+        </section>
+    
+        <section id="OtherPage" class="page"></section>
+      </section>
+    
+      <section class="subpage BookMark_city">
+        <div class="hidden_bg" onclick="hideBookMark()"></div>
+        <article class="BookMark">
+          <header class="BookMark-header header">
+            <span>Recent</span>
+            <small onclick="clearAllRec()">clear all</small>
+          </header>
+          <main class="recentContainer"></main>
+        </article>
+      </section>
+    
+      <section class="subpage Menu-page">
+        <div class="hidden_bg" onclick="hideMenu()"></div>
+        <article class="Menu">
+          <header class="Menu-header header">
+            <span>Menu</span>
+            <button onclick="hideMenu();setTimeout(()=>{showSearch()},600)"> <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /> </svg> </button>
+          </header>
+          <main>
+            <a href="#OtherPage"><div onclick="hideMenu();setUpLocation()">
+              <button class="Location icon-btn"> <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#D70019" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /> </svg> </button>
+              <button class="span">Location </button>
+            </div>
+            </a>
+            <a href="#OtherPage"><div onclick="hideMenu(); setUpSettings()">
+              <button class="Units icon-btn"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF6000" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /> </svg> </button>
+              <button class="span">Settings </button>
+            </div>
+            </a>
+            <a href="#OtherPage"><div onclick="hideMenu();setUpFav()">
+              <button class="Fav icon-btn"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF00A3" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg> </button>
+              <button class="span">Favourites</button>
+            </div>
+            </a>
+            <div onclick="hideMenu();setTimeout(()=>{fetchRecDB();showBookMark()},600)">
+              <button class="Recents icon-btn"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFC500" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /> </svg> </button>
+              <button class="span">Recents</button>
+            </div>
+            <a href="#OtherPage"><div onclick="hideMenu()">
+              <button class="Help icon-btn"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00A1FF" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /> </svg> </button>
+              <button class="span">Help &amp; Feedback</button>
+            </div>
+            </a>
+          </main>
+        </article>
+      </section>
+      
+      <section class="subpage Forcasts-page">
+        <article class="mainItm">
+          <header class="header">
+            <button class="icon-holder" onclick="hideForcast()"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            <button class="span date_container">Sat, Sep 02</button>
+            <button class="icon-holder"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="0" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path> </svg></button>
+          </header>
+          
+          <main class="mainBlock">
+            <button class="fig">
+              <img src="/storage/emulated/0/Pictures/Screenshots/Screenshot_20230827-144722.jpg" />
+            </button>
+            <button class="span">19°C</button>
+          </main>
+          
+          <main class="subheader">
+            <button>
+              <block class="time">14pm</block>
+              <block class="imgTemp">
+                <div>
+                  <img src="/storage/emulated/0/Pictures/Screenshots/Screenshot_20230827-144722.jpg" />
+                </div>
+                <figcaption>19°C</figcaption>
+              </block>
+            </button>
+          </main>
+          
+          <main class="details">
+            <div class="itms">
+              <button class="span">Pressure</button>
+              <button class="main-span">1008kpa</button>
+            </div>
+            <div class="itms">
+              <button class="span">Humidity</button>
+              <button class="main-span">60%</button>
+            </div>
+            <div class="itms">
+              <button class="span">Wind speed </button>
+              <button class="main-span">2.6m/s</button>
+            </div>
+            <div class="itms" style="border-bottom: 0px solid transparent;">
+              <button class="span">Wind direction</button>
+              <button class="main-span">25°N</button>
+            </div>
+          </main>
+          
+        </article>
+      </section>
+    
+      <section class="subpage Search-page">
+        <form action="" onsubmit="event.preventDefault()">
+          <article class="search">
+            <header class="search-header header">
+              <block>
+                <button type="reset" onclick="hideSearch()"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" /> </svg> </button>
+                <input type="text" placeholder="Search city" id="searchInp" spellcheck="on" />
+              </block>
+              <div type="reset" onclick="getSearchValue()">
+                Search
+              </div>
+            </header>
+            <main class="search_results_container"></main>
+          </article>
+        </form>
+      </section>
+    
+      <section class="subpage Fav_dialog_page">
+        <article class="Fav_dialog">
+          <header class="header">
+            <button class="icon-holder" onclick="hide_Fav_dialog()"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+          </header>
+          <main class="Info">
+            <button class="icon-holder"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.3" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path> </svg></button>
+            <button class="span">FR, Paris, Ill-lrinden</button>
+          </main>
+          <main class="Opts">
+            <a href="#Home"><div class="LookUp" data-key="" onclick="get_Lat_Lon(this);hide_Fav_dialog()">
+              <button class="icon-holder"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg></button>
+              <button class="span">Look up location</button>
+            </div></a>
+            <a href="#"><div class="TurnNotification" data-key="" onclick="hide_Fav_dialog()">
+              <button class="icon-holder"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path> </svg></button>
+              <button class="span">Notify this location </button>
+            </div></a>
+            <a href="#"><div class="Remove" data-key="" onclick="Delete_Fav(this)">
+              <button class="icon-holder"><svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg></button>
+              <button class="span">Remove from favorite</button>
+            </div></a>
+          </main>
+        </article>
+        <article class="hidden_bg" onclick="hide_Fav_dialog()"></article>
+      </section>
+    
+      <div class="dialog_container">
+        <button class="Dialog">Item successfully restored</button>
+      </div>
+    
+      <!--
+            THIS BUTTON IS MORE USEFUL THAN YOUR FUCKING LIFE.
+            DON'T TOUCH IT.
+            ONLY FOR ADD AND REMOVE FAVORITE SECTION
+            sun, Aug 27, 22:42pm, 2023
+            -->
+      <button class="Add_Remove_Fav" hidden>Add</button>
+    
+    </body>
+  </html>
